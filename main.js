@@ -1,4 +1,7 @@
+noseX=0;
+noseY=0;
 function preload() {
+clown_nose = loadImage('https://i.postimg.cc/9XP5z4w0/A-Mustache-Looks-Like-a-Big-Hairy-Smile-removebg-preview.png');
 
 }
 
@@ -19,6 +22,7 @@ function modelLoaded() {
 
 function draw() {
    image(video, 0, 0, 300, 300);
+   image(clown_nose, noseX-10, noseY-15, 30, 30);
 }
 
 function take_snapshot() {
@@ -28,7 +32,9 @@ function take_snapshot() {
 function gotPoses(results) {
    if (results.length > 0) {
       console.log(results);
-      console.log("nose x =" + results[0].pose.nose.x);
-      console.log("nose y =" + results[0].pose.nose.y);
+      noseX=results[0].pose.nose.x;
+      noseY=results[0].pose.nose.y;
+      console.log("nose x =" + noseX);
+      console.log("nose y =" + noseY);
    }
 }
